@@ -1,73 +1,104 @@
-<Html>
+<!DOCTYPE html>
+
+<html>
+
 <head>
-<title> ::File I/O </title>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+window.onload = function(){
+
+	document.getElementById("btnStart").onclick = function(){
+
+		readFile();
+
+		
+
+	}
+
+}
+
+
+
+function readFile(){
+
+	var file = document.getElementById("file").files[0];
+
+	//alert(file);
+
+	document.getElementById("fileName").textContent = file.name;
+
+	document.getElementById("fileSize").textContent = file.size;
+
+	
+
+	var reader = new FileReader();
+
+	var encodeList = document.getElementById("encoding");
+
+	var encoding = encodeList.options[encodeList.selectedIndex].value;
+
+	reader.readAsText(file, encoding);
+
+	
+
+	reader.onload = function(){
+
+		var display = document.getElementById("content");
+
+		display.textContent = reader.result;		// 읽은 파일
+
+	}
+
+	
+
+	reader.onerror = function(e){
+
+		alert("읽기 오류:" + e.target.error.code);
+
+		return;
+
+	}
+
+}
+
+</script>
+
 </head>
 
 <body>
-<script type="text/javascript">
 
-//파일 만드는 함수--------------------------------------------------
-function createFile()
-{
-  //text area에 기록된 text를 txt에 저장
-  var txt= document.getElementById("txtInput").value;
+<h2>클라이언트 컴의 파일 읽기</h2>
 
-  // FileSystemObject 객체를 생성
-  var fileObject = new ActiveXObject("Scripting.FileSystemObject");
-  // 파일 생성(이스케이프(\)를 두번씩 넣어줘야 함.)
-  fWrite = fileObject.CreateTextFile("write.txt",true);
-  // 파일쓰기
-  fWrite.write(txt+"</body></html>");
-  // 파일 닫기
-  fWrite.close();
+<input type="file"	id="file">
 
-  document.getElementById("txtInput").innerHTML="저장되었습니다.show File 버튼을 누르면 확인할 수 있습니다.";
-}
+<select id="encoding">
 
-//파일 읽어와서 보여주는 함수--------------------------------------------------
-function showFile()
-{ 
- var fileName = "write.txt";
- var fileObject=new ActiveXObject("Scripting.FileSystemObject");
+	<option value="utf-8">UTF-8</option>
 
- //파일이 있는지 검사
+	<option value="euc-kr">EUC-KR</option>
 
- if (!fileObject.FileExists(fileName)) //파일이 없다면
- {
-  alert('만들어진 파일이 없습니다. 파일을 만드신 후 다시 이용하세요');
- }
- else //파일이 있다면..
- {
-  var fOpen=fileObject.OpenTextFile(fileName,1);
-  document.getElementById("txtOutput").innerHTML="";
+</select>
 
-  //파일 읽어오기
-  while(!fOpen.AtEndOfStream)
-  {
-   document.getElementById("txtOutput").innerHTML+= fOpen.Readline();   
-  }
-  fOpen.close();
- } 
-}
-</script>
+<button id="btnStart">읽기</button>
 
- 
+<br>
 
-<textarea id="txtInput" name="text" rows="6" cols="40">
-이곳에 글을 입력하세요.
-</textarea>
-<br><br>
+<div>
 
- 
+	<span id="fileName">파일이름</span>
 
-<input type="button" value="Create File" onclick="createFile()">
-<input type="button" value="show File" onclick="showFile()">
+	<span id="fileSize">파일크기</span>
 
-<br><br>
+</div>
 
+<textarea rows="10" cols="50" id="content" readonly="readonly"></textarea>
 
-<textarea id="txtOutput" name="text" rows="6" cols="40">
-저장된 글을 보기 위한 곳입니다.
-</textarea>
 </body>
+
 </html>
+ 
