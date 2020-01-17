@@ -15,7 +15,7 @@ function createFile()
   // FileSystemObject 객체를 생성
   var fileObject = new ActiveXObject("Scripting.FileSystemObject");
   // 파일 생성(이스케이프(\)를 두번씩 넣어줘야 함.)
-  fWrite = fileObject.CreateTextFile("C:\\write.txt",true);
+  fWrite = fileObject.CreateTextFile("write.txt",true);
   // 파일쓰기
   fWrite.write(txt+"</body></html>");
   // 파일 닫기
@@ -27,7 +27,7 @@ function createFile()
 //파일 읽어와서 보여주는 함수--------------------------------------------------
 function showFile()
 { 
- var fileName = "C:\\write.txt";
+ var fileName = "write.txt";
  var fileObject=new ActiveXObject("Scripting.FileSystemObject");
 
  //파일이 있는지 검사
