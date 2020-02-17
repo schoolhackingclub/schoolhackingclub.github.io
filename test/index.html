@@ -15,7 +15,7 @@
             {
                 if(rawFile.status === 200 || rawFile.status == 0)
                 {
-                    if ( rawFile.responseText === "1234" ) alart("success");
+                    if ( rawFile.responseText[0] === '1' && rawFile.responseText[1] === '2') alart("success");
                 }
             }
         };
