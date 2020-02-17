@@ -206,7 +206,7 @@ tbody tr:hover {
 }
 
 .column4 {
-  width: 110px;
+  width: 245px;
   text-align: right;
 }
 
@@ -255,16 +255,16 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Date";
+    content: "Title";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Order ID";
+    content: "ID";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Name";
+    content: "Date";
   }
   table tbody tr td:nth-child(4):before {
-    content: "Price";
+    content: "Link";
   }
   table tbody tr td:nth-child(5):before {
     content: "Quantity";
