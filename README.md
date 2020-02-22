@@ -12,3 +12,6 @@ This homepage is owned Eojeong Middle school. Do not enter without staff
 ## 블로그
 ### 링크:https://schoolhackingclub.github.io/blog
 ### 동아리 내용, 안드로이드 버그판, 나만의 블로그 만들기 등의 지식 공지
+## 강의
+### 링크:https://schoolhackingclub.github.io/training
+### 동아리 활동 중 다룰 내용, 사용법 등을 동영상으로 예습.
