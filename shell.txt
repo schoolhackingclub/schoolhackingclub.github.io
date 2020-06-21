@@ -1,0 +1,1 @@
+SHELLpause & cls & echo success & pause
